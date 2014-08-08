@@ -1,2 +1,33 @@
 ---
 # Ansible playbook to deploy Puppet Agent on a server and ensure its running
+- name: Ensure Puppet Agent install directory
+  file:
+    path=/root/puppetinstall
+    state=directory
+
+- name: Ensure Puppet install log
+  file:
+    path=/root/puppetinstall/puppetagentinstall.log
+    state=touch
+
+- name: Ensure Puppet Agent answer file
+  template:
+    src="../files/puppetagent.answers"
+    dest=/root/puppetinstall/puppetagent.answers
+
+- name: Ensure Puppet repo files 
+  template:
+    src="../files/tmo_puppet.repo"
+    dest=/etc/yum.repos.d/tmo_puppet.repo
+
+- name: Ensure pre-req system packages installed
+  yum:
+    name={{ item }}
+    state=latest
+    enablerepo={{ repo_base_name }}
+    with_items:
+      - apr
+      - apr-util
+      - virt-what
+      - pkgconfig
+
