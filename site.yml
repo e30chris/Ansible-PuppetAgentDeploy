@@ -1,0 +1,3 @@
+---
+# Ansible playbook to deploy Puppet Agent on a server and ensure its running
+- 
