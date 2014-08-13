@@ -12,7 +12,7 @@
 
 - name: Ensure Puppet Agent answer file
   template:
-    src="../files/puppetagent.answers"
+    src="../files/puppetagent.answers.j2"
     dest=/root/puppetinstall/puppetagent.answers
 
 - name: Ensure Puppet repo files 
@@ -30,4 +30,13 @@
       - apr-util
       - virt-what
       - pkgconfig
+
+- name: Start Puppet Agent in noop mode
+  copy:
+    dest=/etc/sysconfig/pe-puppet
+    content="EXTRA_OPTIONS=--noop"
+
+- name: Ensure Puppet Agent is installed
+  command: {{ puppet_agent_installer_path }}/puppet-enterprise-{{ puppet_agent_version }}-all/puppet-enterprise-installer -a /root/puppetinstall/puppetagent.answers | tee /root/puppetinstall/puppetagentinstall.log
+
 
