@@ -3,4 +3,6 @@
 - name: deploy Puppet Agent
   hosts: all
   user: root
+  var_files:
+    - "vars/{{ ansible_os_family }}.yml"
   roles: common
