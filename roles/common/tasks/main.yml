@@ -10,6 +10,18 @@
     path=/root/puppetinstall/puppetagentinstall.log
     state=touch
 
+- name: Ensure PE tarball present
+  get_url:
+    url=https://s3.amazonaws.com/pe-builds/released/{{ pe_version }}/{{ pe_installer }}.tar.gz
+    dest=/root/puppetinstall/peinstaller.tar.gz
+    force=no
+
+- name: Ensure Puppet untar'd to install directory
+  unarchive: 
+    copy=no
+    src=/root/puppetinstall/peinstaller.tar.gz
+    dest=/root/puppetinstall
+
 - name: Ensure Puppet Agent answer file
   template:
     src="../files/puppetagent.answers.j2"
@@ -37,6 +49,6 @@
     content="EXTRA_OPTIONS=--noop"
 
 - name: Ensure Puppet Agent is installed
-  command: {{ puppet_agent_installer_path }}/puppet-enterprise-{{ puppet_agent_version }}-all/puppet-enterprise-installer -a /root/puppetinstall/puppetagent.answers | tee /root/puppetinstall/puppetagentinstall.log
+  command: /root/puppetinstall/puppet-enterprise-{{ puppet_agent_version }}-all/puppet-enterprise-installer -a /root/puppetinstall/puppetagent.answers | tee /root/puppetinstall/puppetagentinstall.log
 
 
