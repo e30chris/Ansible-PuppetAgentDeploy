@@ -1,3 +1,10 @@
-repo_base_url: 
-repo_base_name:
-puppet_master:
+---
+# common variables for PuppetMaster Deployment
+# format for this file
+# variable: fact
+#
+# version of Puppet Enterprise
+pe_version: 3.3.0
+
+# pe installer 
+pe_installer: puppet-enterprise-{{ pe_version }}-{{ os_family }}-{{ os_version }}-{{ os_arch }}

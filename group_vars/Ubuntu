@@ -1,0 +1,5 @@
+---
+# Ubuntu OS Variables
+os_family: ubuntu
+os_version: 14.04
+os_arch: amd64
