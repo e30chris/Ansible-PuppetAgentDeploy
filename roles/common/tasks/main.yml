@@ -32,16 +32,17 @@
     src="../files/tmo_puppet.repo"
     dest=/etc/yum.repos.d/tmo_puppet.repo
 
-- name: Ensure pre-req system packages installed
+- name: Ensure pre-req system packages installed on RedHat/OEL/Centos
   yum:
     name={{ item }}
-    state=latest
+    state=installed
     enablerepo={{ repo_base_name }}
     with_items:
       - apr
       - apr-util
       - virt-what
       - pkgconfig
+  when: ansible_os_family == 'RedHat'
 
 - name: Start Puppet Agent in noop mode
   copy:
