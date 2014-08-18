@@ -1,0 +1,5 @@
+---
+# Solaris OS Variables
+os_family: solaris
+os_version: 10
+os_arch: sparc

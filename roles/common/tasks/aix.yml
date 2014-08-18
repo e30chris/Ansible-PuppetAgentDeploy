@@ -1,0 +1,7 @@
+---
+- name: Ensure the Puppet Agent rpm is installed
+  command: rpm -ivh {{ with_items }}
+  with_items:
+    - {{ zlib_repo_file }}
+    - {{ bash_repo_file }}
+    - {{ readline_repo_file }}
