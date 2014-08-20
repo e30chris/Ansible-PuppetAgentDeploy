@@ -1,5 +1,0 @@
-# Puppet Repo File
-name=Puppet Enterprise
-baseurl={{ repo_base_url }}
-gpgcheck=1
-enabled=0
