@@ -1,0 +1,10 @@
+---
+- name: Ensure Puppet repo files for Ubuntu
+  template:
+    src=ubuntu.puppetlabs.list
+    dest=/etc/apt/sources.list.d/puppetlabs.list
+
+- name: Ensure Puppet Agent is installed on Ubuntu family
+  apt:
+    name=puppet
+    state=present

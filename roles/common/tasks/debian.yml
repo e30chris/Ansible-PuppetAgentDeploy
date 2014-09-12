@@ -1,0 +1,10 @@
+---
+- name: Ensure Puppet repo files for Debian
+  template:
+    src=debian.puppetlabs.list
+    dest=/etc/apt/sources.list.d/puppetlabs.list
+
+- name: Ensure Puppet Agent is installed on Debian family
+  apt:
+    name=puppet
+    state=present

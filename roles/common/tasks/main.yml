@@ -17,8 +17,16 @@
 - include: debian.yml
   when: ansible_os_family=="Debian"
 
-- include: solaris.yml
-  when: ansible_os_family=="Solaris"
-
 - include: aix.yml
   when: ansible_os_family=="AIX"
+
+- name: Start Puppet run to create and submit the cert
+  command: puppet agent --test --waitforcert 300
+
+- name: Accept the cert request on the PuppetMaster
+  command: puppet cert sign {{ ansible_hostname }}
+  delegate_to: {{ puppetmaster_hostname }}
+
+- name: Ensure Puppet Agent is started
+  command: puppet resource service puppet ensure=running enable=true
+

@@ -1,5 +1,5 @@
 ---
-- name: Ensure Puppet repo files 
+- name: Ensure Puppet repo files for RedHat
   template:
     src=puppetlabs.repo
     dest=/etc/yum.repos.d/puppetlabs.repo
@@ -8,4 +8,4 @@
   yum:
     name=puppet
     state=installed
-    enablerepo=[ "{{ puppet_repo_base }}", "puppetlabs-deps" ]
+    enablerepo=[ "puppetlabs-products", "puppetlabs-deps" ]
