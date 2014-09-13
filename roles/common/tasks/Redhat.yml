@@ -1,0 +1,11 @@
+---
+- name: Ensure Puppet repo files for RedHat
+  template:
+    src=puppetlabs.repo
+    dest=/etc/yum.repos.d/puppetlabs.repo
+
+- name: Ensure Puppet Agent is installed on RedHat family
+  yum:
+    name=puppet
+    state=installed
+    enablerepo=[ "puppetlabs-products", "puppetlabs-deps" ]

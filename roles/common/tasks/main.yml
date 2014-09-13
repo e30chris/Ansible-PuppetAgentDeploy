@@ -8,16 +8,16 @@
     dest=/etc/sysconfig/pe-puppet
     content="EXTRA_OPTIONS=--noop"
 
-- include: redhat.yml
+- include: Redhat.yml
   when: ansible_os_family=="RedHat"
 
-- include: ubuntu.yml
+- include: Ubuntu.yml
   when: ansible_os_family=="Ubuntu"
 
-- include: debian.yml
+- include: Debian.yml
   when: ansible_os_family=="Debian"
 
-- include: aix.yml
+- include: AIX.yml
   when: ansible_os_family=="AIX"
 
 - name: Start Puppet run to create and submit the cert
