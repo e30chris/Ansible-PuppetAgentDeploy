@@ -8,4 +8,5 @@
   yum:
     name=puppet
     state=installed
-    enablerepo=[ "puppetlabs-products", "puppetlabs-deps" ]
+    enablerepo=puppetlabs-products,puppetlabs-deps
+    disable_gpg_check=yes

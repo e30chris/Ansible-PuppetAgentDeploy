@@ -3,4 +3,5 @@
 - name: deploy Puppet Agent
   hosts: all
   user: root
-  roles: common
+  roles: 
+  - common
