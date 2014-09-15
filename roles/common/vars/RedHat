@@ -1,5 +1,0 @@
----
-# Centos/RedHat/OEL OS Variables
-os_family: el
-os_version: 6
-os_arch: x86_64

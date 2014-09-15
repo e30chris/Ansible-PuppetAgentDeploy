@@ -1,8 +1,0 @@
----
-# AIX OS Variables
-os_family: aix
-os_version: 7.1
-os_arch: power
-zlib_repo_file: /location/of/rpm/file
-bash_repo_file: /location/of/rpm/file
-readline_repo_file: /location/of/rpm/file
