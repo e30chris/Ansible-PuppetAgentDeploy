@@ -8,7 +8,7 @@ pe_version: 3.3.0
 
 # PuppetMaster Settings
 puppetmaster_hostname: puppetmaster.argo.local
-puppetmaster_ip: 10.0.0.1
+puppetmaster_ip: 10.132.236.220
 
 # RedHat Yum Settings
 puppetlabs_redhat_repo_baseurl: http://yum.puppetlabs.com/el/6/products/$basearch
@@ -16,3 +16,8 @@ puppetlabs_redhat_gpg_key: https://yum.puppetlabs.com/RPM-GPG-KEY-puppetlabs
 
 # Debian & Ubuntu Apt Settings
 puppetlabs_debian_apt_url: http://apt.puppetlabs.com
+
+# AIX Settings
+zlib_repo_file: http://a.url.local
+bash_repo_file: http://a.url.local
+readline_repo_file: http://a.url.local
