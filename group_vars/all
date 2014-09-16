@@ -14,5 +14,5 @@ puppetmaster_ip: 10.0.0.1
 puppetlabs_redhat_repo_baseurl: http://yum.puppetlabs.com/el/6/products/$basearch
 puppetlabs_redhat_gpg_key: https://yum.puppetlabs.com/RPM-GPG-KEY-puppetlabs
 
-# Debian Apt Settings
+# Debian & Ubuntu Apt Settings
 puppetlabs_debian_apt_url: http://apt.puppetlabs.com
