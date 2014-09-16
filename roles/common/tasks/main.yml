@@ -10,7 +10,7 @@
 
 - name: Ensure hosts file has PuppetMaster resolution
   template:
-    src=templates/hosts.j2
+    src=hosts.j2
     dest=/etc/hosts
 
 - include: Redhat.yml
