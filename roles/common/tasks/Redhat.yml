@@ -1,7 +1,7 @@
 ---
 - name: Ensure Puppet repo files for RedHat
   template:
-    src=puppetlabs.repo
+    src=puppetlabs.repo.j2
     dest=/etc/yum.repos.d/puppetlabs.repo
 
 - name: Ensure Puppet Agent is installed on RedHat family
