@@ -8,6 +8,11 @@
     dest=/etc/sysconfig/pe-puppet
     content="EXTRA_OPTIONS=--noop"
 
+- name: Ensure hosts file has PuppetMaster resolution
+  template:
+    src=templates/hosts.j2
+    dest=/etc/hosts
+
 - include: Redhat.yml
   when: ansible_os_family=="RedHat"
 
