@@ -6,5 +6,13 @@
 # version of Puppet Enterprise
 pe_version: 3.3.0
 
-# pe installer 
-pe_installer: puppet-enterprise-{{ pe_version }}-{{ os_family }}-{{ os_version }}-{{ os_arch }}
+# PuppetMaster Settings
+puppetmaster_hostname: puppetmaster.argo.local
+puppetmaster_ip: 10.0.0.1
+
+# RedHat Yum Settings
+puppetlabs_redhat_repo_baseurl: http://yum.puppetlabs.com/el/6/products/$basearch
+puppetlabs_redhat_gpg_key: https://yum.puppetlabs.com/RPM-GPG-KEY-puppetlabs
+
+# Debian Apt Settings
+puppetlabs_debian_apt_url: http://apt.puppetlabs.com
